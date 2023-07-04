@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(cors())
 
 app.use(cors({
-    origin: ["http://localhost:3000", "https://client-wdmg.onrender.com"],
+    origin: ["https://mern-stack-app-api-kk7j.onrender.com"],
     optionsSuccessStatus: 200,
 })
 );

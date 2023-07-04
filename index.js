@@ -8,19 +8,14 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 app.use(cors())
 
-app.use(cors({
-    origin: "https://mern-stack-app-api-kk7j.onrender.com",
-    methods: ["GET", "POST"]
-    optionsSuccessStatus: 200,
-})
-);
-
 app.options('*', cors());
 
-app.get("/", (req,res)=>{
-    res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+app.get("/", cors(), (req,res)=>{
+     origin: "https://client-wdmg.onrender.com",
+     res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
+     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    optionsSuccessStatus: 200,
 })
 
   

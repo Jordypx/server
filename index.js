@@ -1,5 +1,4 @@
 const express = require("express")
-const cors = require("cors")
 const collection = require('./mongo.js')
 const app = express()
 
@@ -7,19 +6,17 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
-app.use(cors({
-    origin: ["http://localhost:3000", "https://client-wdmg.onrender.com"],
-    optionsSuccessStatus: 200,
-})
-);
+const cors = require('cors');
+const corsOptions ={
+    origin:'https://client-wdmg.onrender.com', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.get("/", (req,res)=>{
-    res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+   
 })
-
-  
 
 app.post('/login', async(req,res)=>{
     const{username,password} = req.body

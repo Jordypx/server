@@ -14,6 +14,8 @@ app.use(cors({
 })
 );
 
+app.options('*', cors());
+
 app.get("/", (req,res)=>{
     res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");

@@ -6,12 +6,17 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
-app.use(cors({
-  origin: ["https://client-wdmg.onrender.com"]
-}));
 
-app.get("/", cors(), (req,res)=>{
-   
+app.use(cors({
+    origin: ["http://localhost:3000", "https://client-wdmg.onrender.com"],
+    optionsSuccessStatus: 200,
+})
+);
+
+app.get("/", (req,res)=>{
+    res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 })
 
   

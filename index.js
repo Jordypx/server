@@ -9,7 +9,8 @@ app.use(express.urlencoded({ extended: true}))
 app.use(cors())
 
 app.use(cors({
-    origin: "*",
+    origin: "https://mern-stack-app-api-kk7j.onrender.com",
+    methods: ["GET", "POST"]
     optionsSuccessStatus: 200,
 })
 );

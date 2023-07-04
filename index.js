@@ -10,11 +10,14 @@ app.use(cors())
 
 app.use(cors({
     origin: ["http://localhost:3000", "https://client-wdmg.onrender.com"],
+    optionsSuccessStatus: 200,
 })
 );
 
-app.get("/", cors(), (req,res)=>{
-   
+app.get("/", (req,res)=>{
+    res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 })
 
   

@@ -50,7 +50,7 @@ app.post('/signup', async(req,res)=>{
             res.json("exist")
         }else {
             res.json("notexist")
-            await collection.insertOne([data])
+            await collection.insertMany([data])
         }
     } catch (error) {
         res.json("notexist")

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express")
 const cors = require("cors")
 const collection = require('./mongo.js')
@@ -9,7 +11,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(cors())
 
 app.get("/", cors(), (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Replace * with the appropriate origin
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.status(200).send("OK");
@@ -57,6 +59,8 @@ app.post('/signup', async(req,res)=>{
     }
 })
 
-app.listen(8000,()=>{
-    console.log("port running")
+const port = process.env.PORT || 8000;
+
+app.listen(port,()=>{
+    console.log(`Server is running on port ${port}`);
 })

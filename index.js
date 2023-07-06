@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(cors())
 
 app.get("/", cors(), (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Replace * with the appropriate origin
+  res.setHeader("Access-Control-Allow-Origin", "https://client-wdmg.onrender.com"); // Replace * with the appropriate origin
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.status(200).send("OK");
